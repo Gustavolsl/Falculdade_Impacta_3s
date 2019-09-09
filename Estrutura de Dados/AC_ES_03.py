@@ -1,4 +1,3 @@
-
 '''Nome e R.A. da pessoa 1'''
 #Gustavo Luiz Silva Lima RA:1801471
 '''Nome e R.A. da pessoa 2 (se feito em dupla)'''
@@ -71,9 +70,7 @@ Por exemplo: a chamada na_posicao([20, 41, 33], 2) deve retornar 33.
 '''
 
 def na_posicao(lista, indice):
-    
     return lista[indice]
-
 
 '''
 Veja o código a seguir.
@@ -134,8 +131,6 @@ A chamada receberá dois parâmetros: o índice e o elemento presente no
 
 '''
 
-
-
 '''
 Para a próxima parte, vamos lembrar como obter a média aritmética entre dois
 números.
@@ -164,9 +159,9 @@ nos comentários.
 Preencha corretamente as três variáveis.
 '''
 
-media_4_6 = None    # preencher com a média exata entre 4 e 6
-media_1220_8 = None # preencher com a média exata entre 1220 e 8
-media_7_20 = None   # preencher com a média exata entre 7 e 20
+media_4_6=5.0
+media_1220_8=614.0
+media_7_20=13.5
 
 '''
 Após somar os números, a divisão exata por 2 nos dá a média aritmética
@@ -369,9 +364,9 @@ class TestStringMethods(unittest.TestCase):
             self.fail('erro nas fotografias.')
 
     def test_005a_var_medias(self):
-        self.compara_hash(media_4_6, 5.0)
-        self.compara_hash(media_1220_8, 614.0)
-        self.compara_hash(media_7_20, 13.5)
+        self.compara_hash(float(media_4_6), 5.0)
+        self.compara_hash(float(media_1220_8), 614.0)
+        self.compara_hash(float(media_7_20), 13.5)
 
     def test_005b_media(self):
         self.assertEqual(media(1, 3), 2)
@@ -498,10 +493,10 @@ def explica_erro(album1, album2):
 #---------------------------------------------------------------------------
 # para SEMPRE rodar os testes, descomentar linha abaixo:
 
-runTests()
+#runTests()
 
 
 # se você quiser sempre rodar TODOS os testes (não só até primeira falha), usar
 # a seguinte chamada:
 
-# runTests(rapido=False)
+runTests(rapido=False)
