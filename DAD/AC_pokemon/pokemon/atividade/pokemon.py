@@ -141,7 +141,20 @@ Todo pokémon pode pertencer a um ou a dois tipos diferentes. Retorne uma lista 
 Se houver dois tipos, a ordem não é importante.
 """
 def tipos_do_pokemon(nome):
-    pass
+    check_str(nome)
+    nome=nome.lower()
+    url='http://localhost:8000/api/v2/pokemon/'+str(nome)
+    print('\n',url)
+    dic_pokemon= api.get(url).json()
+    tipos = {"normal": "normal","lutador":"fighting","voador":"flying","veneno":"poison","terra":"earth","pedra":"stone","inseto":"insect","fantasma":"ghost","aço":"steel","fogo":"fire","água":"walter","grama":"grass", "elétrico":"electric", "psíquico":" psychic","gelo":"ice", "dragão":"dragon", "noturno":"night", "fada":"fairy"}
+    tipos_traduzidos = []
+    tipo_pokemon = dic_pokemon['types']
+    print('\n',dic_pokemon['types'])
+
+    for i in tipo_pokemon:
+        tipos_traduzidos.append(tipos[i['types']['name']])    
+
+    return tipos_traduzidos
 
 """
 6. Dado o nome de um pokémon, liste de qual pokémon ele evoluiu.

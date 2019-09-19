@@ -49,6 +49,7 @@ class TestPokeapi(unittest.TestCase):
 
     @sem_io
     def test_03c_nao_existe(self):
+        
         pokemon_nao_existe(lambda : color_of_pokemon("DOBBY"), self)
         pokemon_nao_existe(lambda : color_of_pokemon("Peppa-Pig"), self)
         pokemon_nao_existe(lambda : color_of_pokemon("batman"), self)
