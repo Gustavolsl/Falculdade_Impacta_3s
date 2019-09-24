@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from to_dict import *
 from validacao import *
 
-treinadores = {}
+treinadores = {"Ash Ketchum"}
 
 class PokemonJaExisteException:
     pass
