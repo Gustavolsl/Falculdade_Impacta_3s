@@ -31,8 +31,8 @@ http://localhost:8000/api/v2/pokemon-color/2/
 """
 Não altere estas URLs. Elas são utilizadas para conectar no treinador e no PokeAPI, respectivamente.
 """
-site_treinador = "http://127.0.0.1:9000"
-site_pokeapi = "http://127.0.0.1:8000"
+url_treinador = site_treinador = "http://127.0.0.1:9000"
+url_pokeapi = site_pokeapi = "http://127.0.0.1:8000"
 
 """
 Vamos precisar destas quatro exceções personalizadas.
@@ -66,16 +66,16 @@ def check_str(a):
 """
 Esta classe será utilizada no exercício 12 abaixo.
 """
-@dataclass(frozen = True)
+@dataclass()
 class Pokemon:
     nome_treinador: str
     apelido: str
     tipo: str
     experiencia: int
-    nivel: int
-    cor: str
-    evoluiu_de: str
-    evolui_para: list
+    nivel: int = 0 
+    cor: str = 'azul'
+    evoluiu_de: str = 'ninguem'
+    evolui_para: list = ''
 
 """
 1. Dado o número de um pokémon, qual é o nome dele?
@@ -189,6 +189,11 @@ def nivel_do_pokemon(nome, experiencia):
 """
 9. Dado um nome de treinador, cadastre-o na API de treinador.
 Retorne True se um treinador com esse nome foi criado e False em caso contrário (já existia).
+
+Para passar esse teste, também vai ser necessário a função detalhar_treinador,
+que conecta ao servidor e verifica se o treinador com o nome dado existe.
+
+Essa funcao esta definida mais abaixo, nao precisa se preocupar com ela ainda
 """
 def cadastrar_treinador(nome):
     pass
@@ -206,11 +211,11 @@ def cadastrar_pokemon(nome_treinador, apelido_pokemon, tipo_pokemon, experiencia
 11. Dado um nome de treinador, um apelido de pokémon e uma quantidade de experiência, localize esse pokémon e acrescente-lhe a experiência ganha.
 """
 def ganhar_experiencia(nome_treinador, apelido_pokemon, experiencia):
-    pass
+   pass 
 
 """
 12. Dado um nome de treinador e um apelido de pokémon, localize esse pokémon na API do treinador e retorne um objeto da classe Pokemon mostrando:
-Qual é a sua espécie, a sua quantidade de experiência e em que nível ele está.
+Qual é a sua espécie, a sua quantidade de experiência, o nome do seu treinador e o seu apelido (outros atributos da classe Pokemon serão preenchidos em um teste mais pra frente, que vai retomar essa função).
 """
 def localizar_pokemon(nome_treinador, apelido_pokemon):
     pass
@@ -218,8 +223,11 @@ def localizar_pokemon(nome_treinador, apelido_pokemon):
 """
 13. Dado o nome de um treinador, localize-o na API do treinador e retorne um dicionário contendo como chaves, os apelidos de seus pokémons e como valores os tipos deles.
 """
-def detalhar_treinador(nome_treinador):
-    pass
+def detalhar_treinador(nome):
+    resp = api.get(url_treinador+'/treinador/'+nome)
+    if resp.status_code == 404:
+        raise TreinadorNaoCadastradoException
+    return {}
 
 """
 14. Dado o nome de um treinador, localize-o na API do treinador e exclua-o, juntamente com todos os seus pokémons.
