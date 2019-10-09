@@ -1,0 +1,47 @@
+##################################################################################################
+'''AC_Detran'''
+##################################################################################################
+
+class Multa:
+    
+    def __init__(self, valor: float, motivo: str, data: str, placa: str):
+        self._valor = valor #DoubleType
+        self._motivo = motivo #StringType
+        self._data = data #DateType
+        self._placa = placa #StringType
+
+    def getValor(self):
+        return self._valor
+
+    def getMotivo(self):
+        return self._motivo
+    
+    def getData(self):
+        return self._data
+
+    def getplaca(self):
+        return self._placa
+
+class Ocorrencia:
+    
+    def __init__(self, placa: str, dataHora: datetime, nomeLogradouro: str, velocidadeMedia: int, tipoVeiculo: int):
+        self._placa = placa #StringType
+        self._dataHora = dataHora #DateType
+        self._nomeLogradouro = nomeLogradouro #StringType
+        self._velocidadeMedia = velocidadeMedia #IntType
+        self._tipoVeiculo = tipoVeiculo #IntType
+        
+    def getplaca(self):
+        return self._placa
+
+    def getDataHora(self):
+        return self._dataHora
+
+    def getNomeLogradouro(self):
+        return self._nomeLogradouro
+
+    def getVelocidadeMedia(self):
+        return self._velocidadeMedia
+
+    def getTipoVeiculo(self):
+        return self._tipoVeiculo
