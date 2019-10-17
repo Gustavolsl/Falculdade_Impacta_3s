@@ -1,5 +1,12 @@
+import herois
 import jogadores
+import itens
+import itens_do_heroi
+from herois import HeroiNaoExisteException
 from jogadores import JogadorNaoExisteException
+from itens import ItemNaoExisteException
+
+
 
 '''
 1) Examine o banco de dados no site https://sqliteonline.com/.
@@ -37,7 +44,7 @@ podemos usar o sql no python com sqlite.
 
 
 '''
-Nesse arquivo, crie uma função jogador_por_email, que consulta
+1-1) Nesse arquivo, crie uma função jogador_por_email, que consulta
 o banco de dados e devolve o jogador que tem um 
 determinado email, dando JogadorNaoExisteException
 se nenhum jogador tiver esse email. Lembre-se que
@@ -49,7 +56,7 @@ def jogador_por_email(email):
 
 
 '''
-crie e importe um arquivo herois.py
+2-2) crie e importe um arquivo herois.py
 que contem uma funcao consultar_heroi.
 ela recebe uma id de heroi e retorna 
 um dicionario com todos os dados do heroi
@@ -60,12 +67,9 @@ se receber uma id invalida, a funcao levanta
 uma HeroiNaoExisteException (que voce deverá
 criar)
 '''
-
-def consultar_id_heroi(id):
-    return herois.consultar_heroi(id)
-    
+# Feito!  
 '''
-crie e importe um arquivo itens.py
+3-3) crie e importe um arquivo itens.py
 que contem uma funcao consultar_item.
 ela recebe uma id de item e retorna 
 um dicionario com todos os dados do item
@@ -76,9 +80,9 @@ se receber uma id invalida, a funcao levanta
 uma ItemNaoExisteException (que voce deverá
 criar)
 '''
-
+#Feito!
 '''
-Crie e importe um arquivo itens_do_heroi
+4-4) Crie e importe um arquivo itens_do_heroi
 com uma funcao consulta_itens_por_heroi, que recebe 
 uma id de heroi e retorna uma lista de todas as linhas
 da tabela ItemDoHeroi em que a id do heroi é igual à 
@@ -92,9 +96,9 @@ cada uma das linhas representada por um dicionario, com as chaves
 id, idHeroi e idItem
 
 '''
-
+#Feito!
 '''
-Nesse arquivo, crie uma função lista_itens_do_heroi, que recebe uma id
+5-5) Nesse arquivo, crie uma função lista_itens_do_heroi, que recebe uma id
 de heroi e devolve uma lista com os dicionarios representando
 os itens que pertencem a esse heroi.
 
@@ -104,8 +108,9 @@ def lista_itens_do_heroi(idHeroi):
 O retorno é uma lista com varios dicionarios, um para cada item. Cada
 dicionario tem os dados do item, como ja fizemos antes
 '''
+
 '''
-Agora, criemos uma nova função, que lista apenas os itens em uso.
+6-6) Agora, criemos uma nova função, que lista apenas os itens em uso.
 
 Um item está em uso quando o valor da coluna emUso é 1.
 Se for 0, o heroi tem o item mas não está usando.
@@ -115,12 +120,14 @@ def lista_itens_em_uso_do_heroi(idHeroi):
 '''
 
 '''
-Crie uma funcao heroi_pronto_por_nome, que recebe um nome de heroi
+7-7) Crie uma funcao heroi_pronto_por_nome, 
+que recebe um nome de heroi
 e retorna um dicionario com os dados desse heroi.
 '''
 
+
 '''
-Melhore sua função heroi_pronto_por_nome: agora, os dados do dicionario
+8-8) Melhore sua função heroi_pronto_por_nome: agora, os dados do dicionario
 incluem os itens em uso. Se o heroi está usando um item que aumenta
 suas habilidades, as habilidades que aparecem no dicionario serão
 as do heroi, aumentadas de acordo com o item
@@ -132,13 +139,13 @@ não afetam as estatisticas).
 '''
 
 '''
-Melhore sua funcao heroi_pronto_por_nome. Agora, o dicionario também
+9-9) Melhore sua funcao heroi_pronto_por_nome. Agora, o dicionario também
 incluirá o a chave vida. O valor da vida de um heroi é inicializado
 com seu fisico multiplicado por 10
 '''
 
 '''
-Chegou a hora de fazer um ataque!
+10-10) Chegou a hora de fazer um ataque!
 
 A função atacar_com fisico recebe dois dicionarios, de dois herois. 
 (esses dicionarios sao os gerados pela funcao heroi_pronto_por_nome)

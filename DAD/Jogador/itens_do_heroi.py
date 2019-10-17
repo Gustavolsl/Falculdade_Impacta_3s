@@ -18,17 +18,18 @@ connection.commit()
 connection.close()
 #5o passo: fechar a conexao
 
-class HeroiNaoExisteException(Exception):
-    pass
-
-def consultar_heroi(id_heroi):
-    connection= sqlite3.connect("rpg.db")
-    cursor= connection.cursor()
-    sql= "SELECT * FROM Heroi WHERE id = (?)"
-    cursor.execute(sql, [id_heroi])
-    heroi= cursor.fetchone()
-    if heroi== None:
-        raise HeroiNaoExisteException
-    cursor.close()
-    return {'id':heroi[0], 'nome':heroi[1], 'fisico':heroi[2], 'magia':heroi[3], 'agilidade':heroi[4]}
-
+def consulta_itens_por_heroi(idHeroi):
+    list_itens = []
+    connection = sqlite3.connect("rpg.db")
+    cursor = connection.cursor()
+    sql = "SELECT * FROM ItemDoHeroi WHERE idHeroi = (?)"
+    cursor.execute(sql, [idHeroi])
+    retorno= cursor.fetchall()
+    tamanho = len(retorno)
+    count = 0
+    if tamanho >= 1:
+        for i in retorno:
+            list_itens.append({'id':i[0],'idItem':i[1],'idHeroi':i[2]})
+            count += 1
+    #print(list_itens,idHeroi)
+    return list_itens
