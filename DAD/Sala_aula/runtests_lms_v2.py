@@ -29,8 +29,6 @@ class TestStringMethods(unittest.TestCase):
         r = requests.post('http://localhost:5002/alunos',json={'nome':'mario','id':20})
         r_id = requests.get('http://localhost:5002/alunos/20')
         self.assertEqual(r_id.json()['nome'],'mario')
-
-
     
     def test_003_adiciona_e_reseta(self):
         r = requests.post('http://localhost:5002/alunos',json={'nome':'cicero','id':29})
@@ -251,9 +249,6 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(r_lista.json()['plano_ensino'],'funcoes e calculo')
         self.assertEqual(r_lista.json()['carga_horaria'],15)
         self.assertEqual(r_lista.json()['status'],12)
-
-
-
     
     def test_203_adiciona_e_reseta(self):
         r = requests.post('http://localhost:5003/disciplinas',json={'id':104,'nome':'lp2','status':12,'plano_ensino':'dicionarios e classes','carga_horaria':15})
